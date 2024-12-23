@@ -1,0 +1,302 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Scarcity Solutions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        h1 {
+            text-align: center;
+            color: #0066cc;
+        }
+        .scenario {
+            background-color: #e6f7ff;
+            padding: 20px;
+            border: 2px solid #0066cc;
+            margin-bottom: 20px;
+        }
+        .options {
+            margin: 20px 0;
+        }
+        .options button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            background-color: #0073e6;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .options button:hover {
+            background-color: #005bb5;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border: 2px solid #4CAF50;
+            background-color: #e7f9e9;
+            display: none;
+        }
+        .wrong-result {
+            border-color: #f44336;
+            background-color: #ffe6e6;
+        }
+        .solution-info {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px solid #ccc;
+            background-color: #f9f9f9;
+            width: 100%;
+            justify-content: space-between;
+        }
+        .info-text {
+            flex: 2;
+            padding-right: 20px;
+        }
+        .info-image {
+            flex: 1;
+            text-align: center;
+        }
+        .info-image img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #next-button {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #next-button:hover {
+            background-color: #45a049;
+        }
+        .navbar{
+            color: white;
+            width: 100%;
+            background-color: #212121;
+            display: flex;
+            flex-direction: row;
+            justify-content:space-around;
+            align-items:stretch;
+            margin-bottom: 2px;
+        }
+        .logo>img{
+            height: 30px;
+            border-radius: 10px;
+            margin-top: 5px;
+            position: sticky;
+        }
+        .items{
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            position: sticky;
+        }
+        .list-item{
+            text-decoration: none;
+            margin: 0 25px;
+            padding: 4px 2px;
+            position: sticky;
+            color: #ccc;
+            display: inline-block;
+            padding:0.5vh;
+        }
+        .list-item:hover{
+            background-color: #0073e6;
+            color: white;
+        }
+        #q{
+            color: rgb(87, 87, 247);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><img src="./images/logo.ico"></div>
+        <ul class="items">
+            <a class="list-item active" href="index.html">Home</a>
+            <a class="list-item" href="./indexAbout.html">About</a>
+            <a class="list-item " href="ptype.html" id="q">Try Quiz</a>
+            <a class="list-item" href="indexScarcity.html">Scarcity</a>  
+            <a class="list-item" href="https://unesdoc.unesco.org/ark:/48223/pf0000384310">UNESCO SDG6</a>
+        </ul>
+    </nav>
+
+    <h1>Water Scarcity: Find Sustainable Solutions</h1>
+
+    <div class="scenario" id="question">
+        <!-- The first question will be loaded here -->
+    </div>
+
+    <div class="options" id="options">
+        <!-- The options for the current question will be loaded here -->
+    </div>
+
+    <div id="result" class="result"></div>
+
+    <div id="solution-info" class="solution-info" style="display: none;">
+        <div class="info-text" id="solution-text">
+            <!-- Detailed information about the correct solution will appear here -->
+        </div>
+        <div class="info-image" id="solution-image">
+            <!-- Related image of the solution will appear here -->
+        </div>
+    </div>
+
+    <button id="next-button" onclick="loadNextQuestion()">Next Question</button>
+    
+
+    <script>
+        // Questions array with added image URLs for correct solutions
+        const questions = [
+            {
+                question: "In your town, people are experiencing severe water shortages due to overconsumption and drought. Which of the following do you think would be the best solution?",
+                options: [
+                    { text: "Building more dams", correct: false },
+                    { text: "Implementing water conservation techniques", correct: true },
+                    { text: "Importing water from other regions", correct: false }
+                ],
+                correctInfo: "Water conservation techniques are the best sustainable solution to water scarcity. These techniques include using water-efficient appliances, fixing leaks, implementing rainwater harvesting, and promoting water-saving habits.",
+                detailedInfo: "Water conservation plays a critical role in reducing water wastage and ensuring efficient use of this vital resource. By encouraging people to adopt simple practices like shorter showers, turning off taps while brushing, and using advanced technologies such as low-flow fixtures, societies can drastically reduce water consumption. This, combined with rainwater harvesting systems, ensures that water resources are replenished, and future droughts can be mitigated.",
+                imageUrl: "https://example.com/conservation-techniques.jpg" // URL of the image related to water conservation
+            },
+            {
+                question: "Which of the following can help reduce water wastage in households?",
+                options: [
+                    { text: "Leaving taps running", correct: false },
+                    { text: "Using water-efficient appliances", correct: true },
+                    { text: "Washing cars with a hose", correct: false }
+                ],
+                correctInfo: "Using water-efficient appliances can significantly reduce household water consumption, ensuring that less water is wasted while performing daily tasks like dishwashing, laundry, and showering.",
+                detailedInfo: "Water-efficient appliances, such as energy-efficient washing machines and dishwashers, help in reducing water usage by operating on optimized cycles. Many of these appliances can detect the amount of water required, thus reducing unnecessary wastage. Installing such devices in homes can lead to significant savings in both water and energy consumption.",
+                imageUrl: "https://example.com/water-efficient-appliances.jpg" // URL of the image related to efficient appliances
+            },
+            {
+                question: "What is a sustainable way of increasing water availability in drought-prone areas?",
+                options: [
+                    { text: "Desalination plants", correct: true },
+                    { text: "Using groundwater excessively", correct: false },
+                    { text: "Polluting rivers", correct: false }
+                ],
+                correctInfo: "Desalination plants can convert seawater to freshwater, providing a sustainable solution for increasing water availability in drought-prone areas.",
+                detailedInfo: "Desalination is a process that removes salts and minerals from seawater to make it drinkable. This technology is particularly useful in areas that are surrounded by oceans but suffer from freshwater shortages. While the process requires energy, recent advancements in renewable energy sources have made desalination a viable and eco-friendly solution to the global water crisis.",
+                imageUrl: "https://example.com/desalination-plant.jpg" // URL of the image related to desalination
+            }
+        ];
+
+        let currentQuestionIndex = 0; // To track the current question
+
+        function loadQuestion() {
+            const questionElement = document.getElementById('question');
+            const optionsElement = document.getElementById('options');
+            const currentQuestion = questions[currentQuestionIndex];
+
+            // Load question
+            questionElement.innerHTML = `<p><strong>Question ${currentQuestionIndex + 1}:</strong> ${currentQuestion.question}</p>`;
+
+            // Load options
+            optionsElement.innerHTML = '';
+            currentQuestion.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.innerText = option.text;
+                button.onclick = () => checkAnswer(option.correct, currentQuestion.correctInfo, currentQuestion.detailedInfo, currentQuestion.imageUrl);
+                optionsElement.appendChild(button);
+            });
+
+            // Hide the result div and solution-info div
+            document.getElementById('result').style.display = 'none';
+            document.getElementById('solution-info').style.display = 'none';
+            document.getElementById('next-button').style.display = 'none'; // Hide "Next Question" button initially
+        }
+
+        function checkAnswer(isCorrect, correctInfo, detailedInfo, imageUrl) {
+            const resultElement = document.getElementById('result');
+            const solutionInfoElement = document.getElementById('solution-info');
+
+            if (isCorrect) {
+                resultElement.innerHTML = "<p>Correct! Well done.</p>";
+                resultElement.style.display = 'block';
+                resultElement.classList.remove('wrong-result');
+                resultElement.classList.add('correct-result');
+
+                // Show detailed information and image
+                document.getElementById('solution-text').innerText = detailedInfo;
+                document.getElementById('solution-image').innerHTML = `<img src="${imageUrl}" alt="Solution Image">`;
+                solutionInfoElement.style.display = 'flex';
+            } else {
+                resultElement.innerHTML = "<p>Incorrect! Try again.</p>";
+                resultElement.style.display = 'block';
+                resultElement.classList.remove('correct-result');
+                resultElement.classList.add('wrong-result');
+            }
+
+            // Show "Next Question" button
+            document.getElementById('next-button').style.display = 'block';
+        }
+
+        function loadNextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                alert('You have completed all the questions!');
+            }
+        }
+
+        // Initial question load
+        loadQuestion();
+        window.addEventListener("resize", () => {
+            if(window.innerWidth < 700 ) {
+                if(!$(".navbar").hasClass("dropdown")) {
+                    $(".navbar").addClass("dropdown");
+                    $(".logo").append('<svg class="drop" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="0" fill="none" width="24" height="24"></rect> <g> <path d="M7 10l5 5 5-5"></path> </g> </g></svg>'); 
+                    $(".items").slideUp();
+                    $(".drop").on("click", ()=> {
+                        document.querySelector(".drop").classList.toggle("flip");
+                        $(".items").slideToggle();
+                    });
+                }
+            } else {
+                if($(".navbar").hasClass("dropdown")){ 
+                    $(".drop").remove();
+                    $(".navbar").removeClass("dropdown");
+                }
+                $(".items").show();
+            }
+        });
+        if(window.innerWidth < 700 ) {
+            if(!$(".navbar").hasClass("dropdown")) {
+            $(".navbar").addClass("dropdown");
+            $(".logo").append('<svg class="drop" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="0" fill="none" width="24" height="24"></rect> <g> <path d="M7 10l5 5 5-5"></path> </g> </g></svg>'); 
+            $(".items").slideUp();
+            $(".drop").on("click", ()=> {
+                document.querySelector(".drop").classList.toggle("flip");
+            
+                $(".items").slideToggle();
+            })
+        }
+        }else {
+            if($(".navbar").hasClass("dropdown")){ 
+                $(".drop").remove();
+                $(".navbar").removeClass("dropdown");
+            }
+            $(".items").show();
+        }
+            
+    </script>
+</body>
+</html>

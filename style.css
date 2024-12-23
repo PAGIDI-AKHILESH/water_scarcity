@@ -1,0 +1,245 @@
+body{
+    margin: 0;
+    background-color: #1577cd7a;
+    display: flex;
+    flex-direction: column;
+}
+.intro{
+    padding-top: 20px;
+    /* margin-top: 50px; */
+    font-size: x-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 30px;
+    color: #086bfff7;
+    border: 3.5px solid rgba(20, 132, 132, 0.3);
+    padding: 3vh;
+}
+#rule{
+    border-bottom: 3px dotted skyblue;
+}
+.list-item{
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    position: sticky;
+
+ }
+ .active{
+    color: rgb(87, 87, 247);
+ }
+.below-svg{
+    margin-top: -15px;
+}
+.below-svg h1{
+    color: white;
+    height: 100px;
+}
+.firsts{
+    position: sticky;
+    top: 0;
+    /* bottom: -12; */
+    width: 100%;
+    /* margin-top: 50px; */
+    height: 80vh;
+    background-image: url("./images/waterbg.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    /* background-color: rgb(10, 30, 48); */
+    display: flex;
+    align-items: end;
+    z-index: -100;
+    margin-bottom: 500px;
+    text-align:justify center;
+    /* margin-bottom: 0; */
+}
+.firsts>h3{
+    font-size:xx-large;
+    font-weight:thick;
+    font-style: italic;
+    color: aliceblue;
+    margin-bottom: 150px;
+    text-align:justify center;
+    left:50%;
+    bottom:30%;
+
+}
+
+.thirds>h1{
+    font-size: xx-large;
+    text-align: center;
+    /* border: 1px solid; */
+    padding: 20px;
+    background-color: blue;
+    color: #f0f8ff;
+    margin-top: 50px;
+}
+.thirds{
+    /* margin-top: 0px; */
+    padding-top: 0;
+    background-color: #8fe7e7f1;
+
+}
+.ways>div:nth-child(1){
+    display: flex;
+    flex-direction: row;
+    max-width: 1000px;
+    justify-content: space-around;
+    border-radius: 20px;
+    margin: 10px;
+    box-shadow: 4px 10px 10px rgb(10, 30, 48);
+    padding: 30px;
+    margin: 40px;
+    background-color: rgba(254, 255, 255, 0.774);
+    align-items: center;
+}
+.all_ways{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.ways div{
+    margin-left: 20px;
+}
+.ways img{
+    height: 150px;
+    width: 200px;
+    border-radius: 20px;
+}
+
+.navbar{
+    color: white;
+    width: 100%;
+    background-color: #212121;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+    margin-bottom: 4px;
+    position: fixed;
+ }
+ .logo>img{
+   height: 30px;
+   border-radius: 10px;
+   margin-top: 5px;
+   position: sticky;
+ }
+ .items{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    position: sticky;
+ }
+ .list-item{
+    text-decoration: none;
+    margin: 0 25px;
+    padding: 4px 2px;
+    position: sticky;
+ }
+ .scarcity{
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    margin-top: 50px;
+    margin-bottom: 25px;
+ }
+ .scarcity>img{
+    width: 400px;
+    border-radius: 10px;
+    /* margin: 20px; */
+ }
+ .scarcity div{
+    width: 70%;
+ }
+ footer{
+    height: 30px;;
+    text-align: center;
+    color: #ffffff;
+    background-color: #212121;
+    padding: 10px;
+ }
+@media(max-width:700px){
+
+    .ways>div:nth-child(1){
+        flex-direction: column;
+        /* height: 500px; */
+        /* overflow-y: scroll; */
+        /* overflow-x: hidden; */
+        /* border: 1px solid; */
+        padding: 0;
+    }
+    .ways>div>div:nth-child(1){
+        margin: 0;
+        width: 100%;
+    }
+    .ways>div>div:nth-child(2){
+        margin: 20px;
+    }
+    .firsts{
+        background-size: cover;
+    }
+    .ways img{
+        width: 100%;
+        border-radius: 0px;
+        border-bottom: 21px;
+        background-size: cover;
+        border-top-left-radius:20px;
+        border-top-right-radius: 20px;
+    }
+    .para{
+      /* background-image: url("https://coldwellsolar.com/wp-content/uploads/2022/10/water-scarcity.jpg"); */
+      background-size: 420px 450px;
+      border-radius: 35px;
+      padding: 15px;
+      align-self: center;
+    }
+    .dropdown{
+      display: block;
+    }
+    .dropdown>.logo{
+      margin: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .dropdown>.logo>p{
+      margin-top: 10px;
+    }
+    .dropdown svg{
+      height: 40px;
+      cursor: pointer;
+    }
+    .dropdown>.items{
+      flex-direction: column;
+      margin-bottom: 10px;
+      
+    }
+    .list-item{
+      margin-bottom: 20px;
+    }
+    .flip{
+      transform: rotateX(180deg);
+    }
+    .firsts{
+        margin-bottom: 700px;
+    }
+    .scarcity{
+        margin-top: 40px;
+        width: 300px;
+        background-color: aliceblue;
+        align-self: center;
+        padding: 10px;
+        border-radius: 20px;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    .scarcity>p{
+        padding: 0;
+        text-align: center;
+    }
+    .scarcity>img{
+        width: 100%;
+        
+    }
+    
+}
+  
